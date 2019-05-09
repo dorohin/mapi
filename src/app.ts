@@ -1,10 +1,14 @@
 import * as bodyParser from "body-parser";
 import dotenv from "dotenv";
 import express from "express";
+import { MongoDbContext } from "./models/mongodb-context";
+import { Routes } from "./routes/routes";
 
 class App {
     //#region Private fields
     private app: express.Application;
+    private routes: Routes;
+    private db: MongoDbContext;
     //#endregion
 
     //#region Properties
@@ -13,10 +17,13 @@ class App {
 
     constructor() {
         // initialize configuration
-        dotenv.config({path: "./environments/.env.development"});
+        dotenv.config({ path: "./environments/.env.development" });
 
         this.app = express();
         this.config();
+
+        this.db = new MongoDbContext();
+        this.routes = new Routes(this.app, this.db);
     }
 
     private config(): void {
