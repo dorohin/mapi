@@ -1,4 +1,4 @@
-import { Document, model, Schema } from "mongoose";
+import { Document, model, Schema, Types } from "mongoose";
 
 export interface IFilm extends Document {
     title: string;
@@ -9,18 +9,28 @@ export interface IFilm extends Document {
     duration?: number;
     rate?: string;
     trailerUri?: string;
-    genres: Schema.Types.ObjectId[];
-    screenshots?: Schema.Types.ObjectId[];
-    comments?: Schema.Types.ObjectId[];
+    genres: Types.ObjectId[];
+    screenshots?: Types.ObjectId[];
+    comments?: Types.ObjectId[];
+    directors?: Types.ObjectId[];
+    actors?: Types.ObjectId[];
 }
 
 export const FilmSchema = new Schema({
+    actors: [{
+        ref: "Actor",
+        type: Schema.Types.ObjectId
+    }],
     comments: [{
         ref: "Comment",
         type: Schema.Types.ObjectId
     }],
     createdAt: { type: Date, required: true },
     description: { type: String, required: false },
+    directors: [{
+        ref: "Director",
+        type: Schema.Types.ObjectId
+    }],
     duration: { type: Number, required: false },
     genres: [{
         ref: "Genre",

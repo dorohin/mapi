@@ -1,18 +1,12 @@
 import { Application, Request, Response } from "express";
-import { ActorController } from "../controllers/actor.controller";
-import { GenreController } from "../controllers/genre.contoller";
 import { MongoDbContext } from "../models/mongodb-context";
+import { StarkApi } from "./stark/stark.api";
 
 export class Routes {
-    //region Private fields
-    private readonly actorController = new ActorController();
-    private readonly genreController = new GenreController();
-    //#endregion
+    private readonly baseUri: string = "/api";
 
     constructor(private app: Application, private context: MongoDbContext) {
         this.initRoutes();
-        this.initActorRoutes();
-        this.initGenreRoutes();
     }
 
     private initRoutes() {
@@ -21,15 +15,9 @@ export class Routes {
                 message: "GET request successfulll!!!!"
             });
         });
+
+        const stark = new StarkApi(this.app, this.context);
+        stark.register(this.baseUri);
     }
 
-    private initActorRoutes() {
-        this.app.get("/actors", (req: Request, resp: Response) => this.actorController.getAll(req, resp));
-        this.app.get("/actors/:actorId", (req: Request, resp: Response) => this.actorController.getById(req, resp));
-    }
-
-    private initGenreRoutes() {
-        this.app.get("/genres", (req: Request, resp: Response) => this.genreController.getAll(req, resp));
-        this.app.get("/genres/:genreId", (req: Request, resp: Response) => this.genreController.getById(req, resp));
-    }
 }

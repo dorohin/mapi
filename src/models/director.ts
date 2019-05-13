@@ -1,8 +1,8 @@
-import { Document, model, Schema } from "mongoose";
+import { Document, model, Schema, Types } from "mongoose";
 import { IHuman } from "./base/human.interface";
 
 export interface IDirector extends Document, IHuman {
-    films: Schema.Types.ObjectId[];
+    films: Types.ObjectId[];
 }
 
 export const DirectorSchema = new Schema({

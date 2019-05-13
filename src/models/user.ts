@@ -1,8 +1,9 @@
-import { Document, model, Schema } from "mongoose";
+import { Document, model, Schema, Types } from "mongoose";
 import { IHuman } from "./base/human.interface";
 
 export interface IUser extends Document, IHuman {
-    comments: Schema.Types.ObjectId[];
+    comments: Types.ObjectId[];
+    refreshToken?: string;
 }
 
 export const UserSchema = new Schema({
@@ -17,7 +18,9 @@ export const UserSchema = new Schema({
         ref: "File",
         type: Schema.Types.ObjectId
     },
-    title: { type: String, required: true }
+    refreshToken: { type: String, required: false },
+    title: { type: String, required: true },
+
 });
 
 const schemaName = "User";

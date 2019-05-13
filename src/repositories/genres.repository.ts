@@ -5,7 +5,7 @@ import { IPagination } from "./base/pagination";
 
 export class GenresRepository {
     public async getAll(callback?: ICallback<IGenre[]>): Promise<IGenre[]> {
-        const genres = await Genres.find(callback);
+        const genres = await Genres.find({}, null, { sort: { title: 1 } }, callback);
         return genres;
     }
 
@@ -14,7 +14,10 @@ export class GenresRepository {
         result.totalCount = await Genres.count({});
         result.totalPage = Math.ceil(result.totalCount / Math.max(take, 1));
         result.currentPage = Math.max(skip / take + 1, 1);
-        result.items = await Genres.find(callback).skip(skip).limit(take);
+        result.items = await Genres
+            .find({}, null, { sort: { title: 1 } }, callback)
+            .skip(skip)
+            .limit(take);
 
         return result;
     }

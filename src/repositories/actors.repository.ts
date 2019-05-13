@@ -5,7 +5,7 @@ import { IPagination } from "./base/pagination";
 
 export class ActorsRepository {
     public async getAll(callback?: ICallback<IActor[]>): Promise<IActor[]> {
-        const actors = await Actors.find(callback);
+        const actors = await Actors.find({}, null, { sort: { firstName: 1, lastName: 1 } }, callback);
         return actors;
     }
 
@@ -14,7 +14,10 @@ export class ActorsRepository {
         result.totalCount = await Actors.count({});
         result.totalPage = Math.ceil(result.totalCount / Math.max(take, 1));
         result.currentPage = Math.max(skip / take + 1, 1);
-        result.items = await Actors.find(callback).skip(skip).limit(take);
+        result.items = await Actors
+            .find({}, null, { sort: { firstName: 1, lastName: 1 } }, callback)
+            .skip(skip)
+            .limit(take);
 
         return result;
     }
@@ -23,8 +26,4 @@ export class ActorsRepository {
         const actor = await Actors.findById(id, callback);
         return actor;
     }
-
-    // public async create(actor: IActor, callback?: ICallback<IActor>): Promise<IActor> {
-    //     return await actor.save(callback);
-    // }
 }

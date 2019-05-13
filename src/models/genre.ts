@@ -1,8 +1,8 @@
-import { Document, model, Schema } from "mongoose";
+import { Document, model, Schema, Types } from "mongoose";
 
 export interface IGenre extends Document {
     title: string;
-    films: Schema.Types.ObjectId[];
+    films: Types.ObjectId[];
 }
 
 export const GenreSchema = new Schema({
