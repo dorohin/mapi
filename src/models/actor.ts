@@ -21,5 +21,5 @@ export const ActorSchema = new Schema({
 });
 
 const schemaName = "Actor";
-const Actor = model<IActor>("Actor", ActorSchema, schemaName);
-export default Actor;
+const Actors = model<IActor>("Actor", ActorSchema, schemaName);
+export default Actors;

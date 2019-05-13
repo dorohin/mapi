@@ -21,5 +21,5 @@ export const CommentSchema = new Schema({
 });
 
 const schemaName = "Comment";
-const Comment = model<IComment>("Comment", CommentSchema, schemaName);
-export default Comment;
+const Comments = model<IComment>("Comment", CommentSchema, schemaName);
+export default Comments;

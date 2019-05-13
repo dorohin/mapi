@@ -21,5 +21,5 @@ export const UserSchema = new Schema({
 });
 
 const schemaName = "User";
-const User = model<IUser>("User", UserSchema, schemaName);
-export default User;
+const Users = model<IUser>("User", UserSchema, schemaName);
+export default Users;
