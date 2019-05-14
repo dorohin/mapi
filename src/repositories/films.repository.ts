@@ -3,9 +3,11 @@ import Films, { IFilm } from "../models/film";
 import { ICallback } from "./base/callback";
 import { IPagination } from "./base/pagination";
 
-export class ActorsRepository {
+export class FilmsRepository {
     public async getAll(callback?: ICallback<IFilm[]>): Promise<IFilm[]> {
-        const films = await Films.find({}, null, { sort: { firstName: 1, lastName: 1 } }, callback);
+        const films = await Films.find({}, null, { sort: { firstName: 1, lastName: 1 } }, callback)
+                            .populate("genres", "title")
+                            .populate("actors", "-films -birthDate");
         return films;
     }
 

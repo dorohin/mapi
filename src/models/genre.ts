@@ -13,6 +13,5 @@ export const GenreSchema = new Schema({
     title: { type: String, required: true }
 });
 
-const schemaName = "Genre";
-const Genres = model<IGenre>("Genre", GenreSchema, schemaName);
+const Genres = model<IGenre>("Genre", GenreSchema);
 export default Genres;

@@ -20,6 +20,5 @@ export const DirectorSchema = new Schema({
     title: { type: String, required: true }
 });
 
-const schemaName = "Director";
-const Directors = model<IDirector>("Director", DirectorSchema, schemaName);
+const Directors = model<IDirector>("Director", DirectorSchema);
 export default Directors;

@@ -24,6 +24,5 @@ export const FileSchema = new Schema({
     type: { type: Number, required: true }
 });
 
-const schemaName = "File";
-const Files = model<IFile>("File", FileSchema, schemaName);
+const Files = model<IFile>("File", FileSchema);
 export default Files;

@@ -20,6 +20,5 @@ export const ActorSchema = new Schema({
     title: { type: String, required: true }
 });
 
-const schemaName = "Actor";
-const Actors = model<IActor>("Actor", ActorSchema, schemaName);
+const Actors = model<IActor>("Actor", ActorSchema);
 export default Actors;

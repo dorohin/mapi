@@ -1,5 +1,6 @@
 import { Application, Request, Response } from "express";
 import { ActorController } from "../../controllers/stark/actor.controller";
+import { FilmController } from "../../controllers/stark/film.controller";
 import { GenreController } from "../../controllers/stark/genre.contoller";
 import { MongoDbContext } from "../../models/mongodb-context";
 
@@ -16,6 +17,7 @@ export class StarkApi {
 
         this.registerActorRoutes(apiPrefix);
         this.registerGenreRoutes(apiPrefix);
+        this.registerFilmRoutes(apiPrefix);
     }
 
     private registerActorRoutes(prefix: string) {
@@ -32,5 +34,12 @@ export class StarkApi {
             async (req: Request, resp: Response) => await genreController.getAll(req, resp));
         this.app.get(`${prefix}/genres/:genreId`,
             async (req: Request, resp: Response) => await genreController.getById(req, resp));
+    }
+
+    private registerFilmRoutes(prefix: string) {
+        const filmController = new FilmController();
+
+        this.app.get(`${prefix}/films`,
+            async (req: Request, resp: Response) => await filmController.getAll(req, resp));
     }
 }

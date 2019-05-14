@@ -1,11 +1,15 @@
-import { Types } from "mongoose";
+import { connection, Types } from "mongoose";
 import Genres, { IGenre } from "../models/genre";
 import { ICallback } from "./base/callback";
 import { IPagination } from "./base/pagination";
 
 export class GenresRepository {
     public async getAll(callback?: ICallback<IGenre[]>): Promise<IGenre[]> {
-        const genres = await Genres.find({}, null, { sort: { title: 1 } }, callback);
+        // tslint:disable-next-line:no-console
+        console.clear();
+        // tslint:disable-next-line:no-console
+        console.log(connection);
+        const genres = await Genres.find({}, null, { sort: { title: 1 } }, callback).exec();
         return genres;
     }
 
@@ -17,13 +21,14 @@ export class GenresRepository {
         result.items = await Genres
             .find({}, null, { sort: { title: 1 } }, callback)
             .skip(skip)
-            .limit(take);
+            .limit(take)
+            .exec();
 
         return result;
     }
 
     public async getById(id: Types.ObjectId, callback?: ICallback<IGenre>): Promise<IGenre> {
-        const genre = await Genres.findById(id, callback);
+        const genre = await Genres.findById(id, callback).exec();
         return genre;
     }
 }

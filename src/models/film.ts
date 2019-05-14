@@ -47,6 +47,5 @@ export const FilmSchema = new Schema({
     year: { type: Number, required: false }
 });
 
-const schemaName = "Film";
-const Films = model<IFilm>("Film", FilmSchema, schemaName);
+const Films = model<IFilm>("Film", FilmSchema);
 export default Films;
