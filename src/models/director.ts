@@ -16,8 +16,7 @@ export const DirectorSchema = new Schema({
     photoId: {
         ref: "File",
         type: Schema.Types.ObjectId
-    },
-    title: { type: String, required: true }
+    }
 });
 
 const Directors = model<IDirector>("Director", DirectorSchema);

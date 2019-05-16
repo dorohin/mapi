@@ -1,5 +1,9 @@
 import { MongoError } from "mongodb";
 import { connect, connection, Connection, disconnect } from "mongoose";
+import { ActorsSeed } from "./seed/actors.seed";
+import { DirectorsSeed } from "./seed/directors.seed";
+import { FilmsSeed } from "./seed/films.seed";
+import { GenresSeed } from "./seed/genres.seed";
 
 export class MongoDbContext {
     private db: Connection;
@@ -23,6 +27,7 @@ export class MongoDbContext {
         this.db.once("open", () => {
             // tslint:disable-next-line:no-console
             console.log("Connected!");
+            this.initSeedData();
         });
     }
 
@@ -30,5 +35,12 @@ export class MongoDbContext {
         if (error != null) {
             throw new Error(`Code: ${error.code}; Text: ${error.errmsg}`);
         }
+    }
+
+    private async initSeedData() {
+        await new GenresSeed().initGenres();
+        await new ActorsSeed().initActors();
+        await new DirectorsSeed().initDirectors();
+        await new FilmsSeed().initFilms();
     }
 }

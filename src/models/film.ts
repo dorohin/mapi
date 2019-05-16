@@ -7,7 +7,7 @@ export interface IFilm extends Document {
     createdAt: Date;
     releaseDate?: Date;
     duration?: number;
-    rate?: string;
+    rating?: string;
     trailerUri?: string;
     genres: Types.ObjectId[];
     screenshots?: Types.ObjectId[];
@@ -36,7 +36,7 @@ export const FilmSchema = new Schema({
         ref: "Genre",
         type: Schema.Types.ObjectId
     }],
-    rate: { type: String, required: false },
+    rating: { type: String, required: false },
     releaseDate: { type: Date, required: false },
     screenshots: [{
         ref: "File",

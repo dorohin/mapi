@@ -16,8 +16,7 @@ export const ActorSchema = new Schema({
     photoId: {
         ref: "File",
         type: Schema.Types.ObjectId
-    },
-    title: { type: String, required: true }
+    }
 });
 
 const Actors = model<IActor>("Actor", ActorSchema);
