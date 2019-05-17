@@ -21,13 +21,12 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                         { lastName: "Downey Jr." },
                         { lastName: "Paltrow" },
                         { lastName: "Howard" }]
-                }))
-                    .map((a) => a._id),
+                })),
                 // tslint:disable-next-line:max-line-length
                 description: "After being held captive in an Afghan cave, billionaire engineer Tony Stark creates a unique weaponized suit of armor to fight evil.",
-                directors: (await Directors.find({ $or: [{ lastName: "Favreau" }] }))
-                    .map((d) => d._id),
+                directors: await Directors.find({ $or: [{ lastName: "Favreau" }] }),
                 duration: 126,
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
                 rating: "12A",
                 releaseDate: new Date(2008, 4, 2),
                 title: "Iron Man",
@@ -40,6 +39,10 @@ export class FilmsSeed extends BaseSeed<IFilm> {
             film._id = new Types.ObjectId();
             film.createdAt = new Date();
             this.model.create(film);
+
+            film.actors.forEach((a) => { a.films.push(film); a.save(); });
+            film.genres.forEach((g) => { g.films.push(film); g.save(); });
+            film.directors.forEach((d) => { d.films.push(film); d.save(); });
         });
     }
 }

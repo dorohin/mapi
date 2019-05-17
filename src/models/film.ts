@@ -1,4 +1,9 @@
 import { Document, model, Schema, Types } from "mongoose";
+import { IActor } from "./actor";
+import { IComment } from "./comment";
+import { IDirector } from "./director";
+import { IFile } from "./file";
+import { IGenre } from "./genre";
 
 export interface IFilm extends Document {
     title: string;
@@ -9,11 +14,11 @@ export interface IFilm extends Document {
     duration?: number;
     rating?: string;
     trailerUri?: string;
-    genres: Types.ObjectId[];
-    screenshots?: Types.ObjectId[];
-    comments?: Types.ObjectId[];
-    directors?: Types.ObjectId[];
-    actors?: Types.ObjectId[];
+    genres: IGenre[];
+    screenshots?: IFile[];
+    comments?: IComment[];
+    directors?: IDirector[];
+    actors?: IActor[];
 }
 
 export const FilmSchema = new Schema({

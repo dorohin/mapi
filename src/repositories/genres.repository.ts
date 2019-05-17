@@ -5,10 +5,6 @@ import { IPagination } from "./base/pagination";
 
 export class GenresRepository {
     public async getAll(callback?: ICallback<IGenre[]>): Promise<IGenre[]> {
-        // tslint:disable-next-line:no-console
-        console.clear();
-        // tslint:disable-next-line:no-console
-        console.log(connection);
         const genres = await Genres.find({}, null, { sort: { title: 1 } }, callback).exec();
         return genres;
     }
