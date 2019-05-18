@@ -305,9 +305,285 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 rating: "12A",
                 releaseDate: new Date(2016, 3, 29),
                 title: "Captain America: Civil War",
-                trailerUri: "https://youtu.be/tmeOjFno6Do",
+                trailerUri: "https://youtu.be/xnv__ogkt0M",
                 year: 2016
             } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Cumberbatch" },
+                        { lastName: "Ejiofor" },
+                        { lastName: "Wong" },
+                        { lastName: "Swinton" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "While on a journey of physical and spiritual healing, a brilliant neurosurgeon is drawn into the world of the mystic arts.",
+                directors: await Directors.find({ $or: [{ lastName: "Derrickson " }] }),
+                duration: 115,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Fanatsy" }] }),
+                rating: "12A",
+                releaseDate: new Date(2016, 9, 25),
+                title: "Doctor Strange",
+                trailerUri: "https://youtu.be/MWRUNTLisPo",
+                year: 2016
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Pratt" },
+                        { lastName: "Saldana" },
+                        { lastName: "Bautista" },
+                        { lastName: "Diesel" },
+                        { lastName: "Cooper" },
+                        { lastName: "Gillan" },
+                        { lastName: "Klementieff" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "The Guardians struggle to keep together as a team while dealing with their personal family issues, notably Star-Lord's encounter with his father the ambitious celestial being Ego.",
+                directors: await Directors.find({ $or: [{ lastName: "Gunn" }] }),
+                duration: 136,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                rating: "12A",
+                releaseDate: new Date(2017, 3, 28),
+                title: "Guardians of the Galaxy: Vol. 2",
+                trailerUri: "https://youtu.be/2cv2ueYnKjg",
+                year: 2017
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Holland" },
+                        { lastName: "Keaton" },
+                        { lastName: "Downey Jr." },
+                        { lastName: "Favreau" },
+                        { lastName: "Paltrow" },
+                        { lastName: "Tomei" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "Peter Parker balances his life as an ordinary high school student in Queens with his superhero alter-ego Spider-Man, and finds himself on the trail of a new menace prowling the skies of New York City.",
+                directors: await Directors.find({ $or: [{ lastName: "Watts" }] }),
+                duration: 133,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                rating: "12A",
+                releaseDate: new Date(2017, 6, 5),
+                title: "Spider-Man: Homecoming",
+                trailerUri: "https://youtu.be/U0D3AOldjMU",
+                year: 2017
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Hemsworth" },
+                        { lastName: "Hiddleston" },
+                        { lastName: "Blanchett" },
+                        { lastName: "Thompson" },
+                        { lastName: "Ruffalo" },
+                        { lastName: "Hopkins" },
+                        { lastName: "Cumberbatch" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "Thor (Chris Hemsworth) is imprisoned on the planet Sakaar, and must race against time to return to Asgard and stop Ragnarök, the destruction of his world, at the hands of the powerful and ruthless villain Hela (Cate Blanchett).",
+                directors: await Directors.find({ $or: [{ lastName: "Waititi" }] }),
+                duration: 130,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                rating: "12A",
+                releaseDate: new Date(2017, 9, 24),
+                title: "Thor: Ragnarok",
+                trailerUri: "https://youtu.be/ue80QwXMRHg",
+                year: 2017
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Boseman" },
+                        { lastName: "B. Jordan" },
+                        { lastName: "Wright" },
+                        { lastName: "Gurira" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "T'Challa, heir to the hidden but advanced kingdom of Wakanda, must step forward to lead his people into a new future and must confront a challenger from his country's past.",
+                directors: await Directors.find({ $or: [{ lastName: "Coogler" }] }),
+                duration: 134,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                rating: "12A",
+                releaseDate: new Date(2018, 1, 13),
+                title: "Black Panther",
+                trailerUri: "https://youtu.be/xjDjIWPwcPU",
+                year: 2018
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Evans" },
+                        { lastName: "Downey Jr." },
+                        { lastName: "Ruffalo" },
+                        { lastName: "Hemsworth" },
+                        { lastName: "Johansson" },
+                        { lastName: "Renner" },
+                        { lastName: "Hiddleston" },
+                        { lastName: "Mackie" },
+                        { lastName: "Stan" },
+                        { lastName: "Paltrow" },
+                        { lastName: "Cheadle" },
+                        { lastName: "Cumberbatch" },
+                        { lastName: "Holland" },
+                        { lastName: "Boseman" },
+                        { lastName: "Saldana" },
+                        { lastName: "Gillan" },
+                        { lastName: "Klementieff" },
+                        { lastName: "Bautista" },
+                        { lastName: "Diesel" },
+                        { lastName: "Cooper" },
+                        { lastName: "Brolin" },
+                        { lastName: "Pratt" },
+                        { lastName: "Wright" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "The Avengers and their allies must be willing to sacrifice all in an attempt to defeat the powerful Thanos before his blitz of devastation and ruin puts an end to the universe.",
+                directors: await Directors.find({ $or: [{ lastName: "Russo" }] }),
+                duration: 149,
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                rating: "12A",
+                releaseDate: new Date(2018, 3, 26),
+                title: "Avengers: Infinity War",
+                trailerUri: "https://youtu.be/6ZfuNTqbHE8",
+                year: 2018
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Rudd" },
+                        { lastName: "Douglas" },
+                        { lastName: "Goggins" },
+                        { lastName: "Lilly" },
+                        { lastName: "Peña" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "As Scott Lang balances being both a Super Hero and a father, Hope van Dyne and Dr. Hank Pym present an urgent new mission that finds the Ant-Man fighting alongside The Wasp to uncover secrets from their past.",
+                directors: await Directors.find({ $or: [{ lastName: "Reed" }] }),
+                duration: 118,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                rating: "12A",
+                releaseDate: new Date(2018, 7, 2),
+                title: "Ant-Man and the Wasp",
+                trailerUri: "https://youtu.be/2nVC5idq1UU",
+                year: 2018
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Larson" },
+                        { lastName: "L. Jackson" },
+                        { lastName: "Mendelsohn" },
+                        { lastName: "Law" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "Carol Danvers becomes one of the universe's most powerful heroes when Earth is caught in the middle of a galactic war between two alien races.",
+                directors: await Directors.find({ $or: [{ lastName: "Boden" }, { lastName: "Fleck" }] }),
+                duration: 123,
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                rating: "12A",
+                releaseDate: new Date(2018, 2, 8),
+                title: "Captain Marvel",
+                trailerUri: "https://youtu.be/Z1BCujX3pw8",
+                year: 2018
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Evans" },
+                        { lastName: "Downey Jr." },
+                        { lastName: "Ruffalo" },
+                        { lastName: "Hemsworth" },
+                        { lastName: "Johansson" },
+                        { lastName: "Renner" },
+                        { lastName: "Hiddleston" },
+                        { lastName: "Mackie" },
+                        { lastName: "Stan" },
+                        { lastName: "Paltrow" },
+                        { lastName: "Cheadle" },
+                        { lastName: "Cumberbatch" },
+                        { lastName: "Holland" },
+                        { lastName: "Boseman" },
+                        { lastName: "Saldana" },
+                        { lastName: "Gillan" },
+                        { lastName: "Klementieff" },
+                        { lastName: "Bautista" },
+                        { lastName: "Diesel" },
+                        { lastName: "Cooper" },
+                        { lastName: "Brolin" },
+                        { lastName: "Pratt" },
+                        { lastName: "Wright" },
+                        { lastName: "Favreau" },
+                        { lastName: "Atwell" },
+                        { lastName: "Portman" },
+                        { lastName: "Tomei" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "After the devastating events of Avengers: Infinity War (2018), the universe is in ruins. With the help of remaining allies, the Avengers assemble once more in order to undo Thanos' actions and restore order to the universe.",
+                directors: await Directors.find({ $or: [{ lastName: "Russo" }] }),
+                duration: 181,
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                rating: "12A",
+                releaseDate: new Date(2019, 3, 25),
+                title: "Avengers: Endgame",
+                trailerUri: "https://youtu.be/TcMBFSGVi1c",
+                year: 2019
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Holland" },
+                        { lastName: "L. Jackson" },
+                        { lastName: "Favreau" },
+                        { lastName: "Paltrow" },
+                        { lastName: "Tomei" },
+                        { lastName: "Gyllenhaal" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "Following the events of Avengers: Endgame, Spider-Man must step up to take on new threats in a world that has changed forever.",
+                directors: await Directors.find({ $or: [{ lastName: "Watts" }] }),
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                rating: "12A",
+                releaseDate: new Date(2019, 6, 2),
+                title: "Spider-Man: Far from Home",
+                trailerUri: "https://youtu.be/Nt9L1jCKGnE",
+                year: 2019
+            } as IFilm,
+            {
+                actors: (await Actors.find({
+                    $or: [
+                        { lastName: "Klementieff" },
+                        { lastName: "Pratt" },
+                        { lastName: "Bautista" }
+                    ]
+                })),
+                // tslint:disable-next-line:max-line-length
+                description: "Plot unknown. Third installment of the 'Guardians of the Galaxy' franchise.",
+                directors: await Directors.find({ $or: [{ lastName: "Gunn" }] }),
+                // tslint:disable-next-line:max-line-length
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                title: "Guardians of the Galaxy Vol. 3",
+                year: 2021
+            } as IFilm
         ];
 
         films.forEach((film) => {

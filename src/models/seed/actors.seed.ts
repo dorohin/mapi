@@ -291,6 +291,11 @@ export class ActorsSeed extends BaseSeed<IActor> {
                 birthDate: new Date(1968, 1, 12),
                 firstName: "Josh",
                 lastName: "Brolin"
+            } as IActor,
+            {
+                birthDate: new Date(1980, 11, 18),
+                firstName: "Jake",
+                lastName: "Gyllenhaal"
             } as IActor
         ];
 
