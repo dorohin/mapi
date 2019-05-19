@@ -18,4 +18,5 @@ export interface IFilmDto {
     screenshots: IFileDto[];
     comments: ICommentDto[];
     directors: IDirectorDto[];
+    poster?: IFileDto;
 }
