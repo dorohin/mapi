@@ -1,6 +1,7 @@
 import { Types } from "mongoose";
 import Actors from "../actor";
 import Directors from "../director";
+import Files from "../file";
 import Films, { IFilm } from "../film";
 import Genres from "../genre";
 import { BaseSeed } from "./base.seed";
@@ -29,6 +30,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Favreau" }] }),
                 duration: 126,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2008_iron_man"}),
                 rating: "12A",
                 releaseDate: new Date(2008, 4, 2),
                 title: "Iron Man",
@@ -49,6 +51,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Leterrier" }] }),
                 duration: 112,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2008_hulk"}),
                 rating: "12A",
                 releaseDate: new Date(2008, 5, 13),
                 title: "The Incredible Hulk",
@@ -69,6 +72,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Favreau" }] }),
                 duration: 124,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2010_iron_man_2"}),
                 rating: "12A",
                 releaseDate: new Date(2010, 3, 30),
                 title: "Iron Man 2",
@@ -89,6 +93,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Branagh" }] }),
                 duration: 115,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Fantasy" }] }),
+                poster: await Files.findOne({ name: "2011_thor"}),
                 rating: "12A",
                 releaseDate: new Date(2011, 3, 27),
                 title: "Thor",
@@ -109,6 +114,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Johnston" }] }),
                 duration: 124,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2011_captain_america"}),
                 rating: "12A",
                 releaseDate: new Date(2011, 6, 29),
                 title: "Captain America: The First Avenger",
@@ -135,6 +141,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Whedon" }] }),
                 duration: 143,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2012_avengers"}),
                 rating: "12A",
                 releaseDate: new Date(2012, 3, 26),
                 title: "Avengers Assemble",
@@ -156,6 +163,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Black" }] }),
                 duration: 130,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2013_iron_man_3"}),
                 rating: "12A",
                 releaseDate: new Date(2013, 3, 25),
                 title: "Iron Man 3",
@@ -177,7 +185,8 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Taylor" }] }),
                 duration: 112,
                 // tslint:disable-next-line:max-line-length
-                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Fanatasy" }] }),
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Fantasy" }] }),
+                poster: await Files.findOne({ name: "2013_thor"}),
                 rating: "12A",
                 releaseDate: new Date(2013, 9, 30),
                 title: "Thor: The Dark World",
@@ -201,6 +210,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 136,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2014_captain_america"}),
                 rating: "12A",
                 releaseDate: new Date(2014, 2, 26),
                 title: "Captain America: The Winter Soldier",
@@ -223,6 +233,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 121,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                poster: await Files.findOne({ name: "2014_guardians_of_the_galaxy"}),
                 rating: "12A",
                 releaseDate: new Date(2014, 6, 31),
                 title: "Guardians of the Galaxy",
@@ -251,6 +262,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 141,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2015_avengers"}),
                 rating: "12A",
                 releaseDate: new Date(2015, 3, 23),
                 title: "Avengers: Age of Ultron",
@@ -275,6 +287,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 117,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                poster: await Files.findOne({ name: "2015_ant_man"}),
                 rating: "12A",
                 releaseDate: new Date(2015, 6, 17),
                 title: "Ant-Man",
@@ -302,6 +315,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 147,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2016_captain_america"}),
                 rating: "12A",
                 releaseDate: new Date(2016, 3, 29),
                 title: "Captain America: Civil War",
@@ -322,7 +336,8 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Derrickson " }] }),
                 duration: 115,
                 // tslint:disable-next-line:max-line-length
-                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Fanatsy" }] }),
+                genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Fantasy" }] }),
+                poster: await Files.findOne({ name: "2016_captain_america"}),
                 rating: "12A",
                 releaseDate: new Date(2016, 9, 25),
                 title: "Doctor Strange",
@@ -347,6 +362,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 136,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                poster: await Files.findOne({ name: "2017_guardians_of_the_galaxy_vol2"}),
                 rating: "12A",
                 releaseDate: new Date(2017, 3, 28),
                 title: "Guardians of the Galaxy: Vol. 2",
@@ -370,6 +386,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 133,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2017_spider_man"}),
                 rating: "12A",
                 releaseDate: new Date(2017, 6, 5),
                 title: "Spider-Man: Homecoming",
@@ -394,6 +411,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 130,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                poster: await Files.findOne({ name: "2017_thor"}),
                 rating: "12A",
                 releaseDate: new Date(2017, 9, 24),
                 title: "Thor: Ragnarok",
@@ -415,6 +433,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 134,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2018_black_panther"}),
                 rating: "12A",
                 releaseDate: new Date(2018, 1, 13),
                 title: "Black Panther",
@@ -454,6 +473,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Russo" }] }),
                 duration: 149,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2018_avengers"}),
                 rating: "12A",
                 releaseDate: new Date(2018, 3, 26),
                 title: "Avengers: Infinity War",
@@ -476,6 +496,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 118,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                poster: await Files.findOne({ name: "2018_ant_man"}),
                 rating: "12A",
                 releaseDate: new Date(2018, 7, 2),
                 title: "Ant-Man and the Wasp",
@@ -497,6 +518,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 duration: 123,
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2019_captain_marvel"}),
                 rating: "12A",
                 releaseDate: new Date(2018, 2, 8),
                 title: "Captain Marvel",
@@ -540,6 +562,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Russo" }] }),
                 duration: 181,
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Sci-Fi" }] }),
+                poster: await Files.findOne({ name: "2019_avengers"}),
                 rating: "12A",
                 releaseDate: new Date(2019, 3, 25),
                 title: "Avengers: Endgame",
@@ -562,6 +585,7 @@ export class FilmsSeed extends BaseSeed<IFilm> {
                 directors: await Directors.find({ $or: [{ lastName: "Watts" }] }),
                 // tslint:disable-next-line:max-line-length
                 genres: await Genres.find({ $or: [{ title: "Action" }, { title: "Adventure" }, { title: "Comedy" }] }),
+                poster: await Files.findOne({ name: "2019_spider_man"}),
                 rating: "12A",
                 releaseDate: new Date(2019, 6, 2),
                 title: "Spider-Man: Far from Home",

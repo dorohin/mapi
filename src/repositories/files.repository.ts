@@ -1,5 +1,5 @@
 import { Types } from "mongoose";
-import Files, { FileType, IFile } from "../models/file";
+import Files, { IFile } from "../models/file";
 import { ICallback } from "./base/callback";
 
 export class FilesRepository {
@@ -14,15 +14,11 @@ export class FilesRepository {
     }
 
     public async create(path: string,
-                        film: Types.ObjectId,
                         name: string,
-                        type: FileType,
                         callback?: ICallback<IFile>): Promise<IFile> {
         let file = {} as IFile;
         file.path = path;
-        file.film = film;
         file.name = name;
-        file.type = type;
         file.createdAt = new Date();
 
         file = await file.save(callback);

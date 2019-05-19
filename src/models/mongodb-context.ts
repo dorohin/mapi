@@ -4,6 +4,7 @@ import { ActorsSeed } from "./seed/actors.seed";
 import { DirectorsSeed } from "./seed/directors.seed";
 import { FilmsSeed } from "./seed/films.seed";
 import { GenresSeed } from "./seed/genres.seed";
+import { FilesSeed } from "./seed/files.seed";
 
 export class MongoDbContext {
     private db: Connection;
@@ -42,5 +43,6 @@ export class MongoDbContext {
         await new ActorsSeed().initActors();
         await new DirectorsSeed().initDirectors();
         await new FilmsSeed().initFilms();
+        await new FilesSeed().initFiles();
     }
 }

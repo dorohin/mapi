@@ -1,9 +1,10 @@
-import { Document, model, Schema, Types } from "mongoose";
+import { Document, model, Schema } from "mongoose";
 import { IActor } from "./actor";
 import { IComment } from "./comment";
 import { IDirector } from "./director";
 import { IFile } from "./file";
 import { IGenre } from "./genre";
+import { IScreenshot } from "./screenshot";
 
 export interface IFilm extends Document {
     title: string;
@@ -15,10 +16,11 @@ export interface IFilm extends Document {
     rating?: string;
     trailerUri?: string;
     genres: IGenre[];
-    screenshots?: IFile[];
+    screenshots?: IScreenshot[];
     comments?: IComment[];
     directors?: IDirector[];
     actors?: IActor[];
+    poster?: IFile;
 }
 
 export const FilmSchema = new Schema({
@@ -41,10 +43,14 @@ export const FilmSchema = new Schema({
         ref: "Genre",
         type: Schema.Types.ObjectId
     }],
+    poster: {
+        ref: "File",
+        type: Schema.Types.ObjectId
+    },
     rating: { type: String, required: false },
     releaseDate: { type: Date, required: false },
     screenshots: [{
-        ref: "File",
+        ref: "Screenshot",
         type: Schema.Types.ObjectId
     }],
     title: { type: String, required: true },
